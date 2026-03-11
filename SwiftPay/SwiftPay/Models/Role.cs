@@ -13,6 +13,7 @@ namespace Model
 
         public DateTime UpdatedAt { get; set; }
 
+        public bool IsDeleted { get; set; }
         // Navigation
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }

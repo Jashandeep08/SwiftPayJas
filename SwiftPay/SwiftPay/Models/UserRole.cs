@@ -20,5 +20,6 @@ namespace Model
         public virtual User User { get; set; }
 
         public virtual Role Role { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
