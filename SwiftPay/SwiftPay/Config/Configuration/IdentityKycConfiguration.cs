@@ -87,6 +87,10 @@ namespace SwiftPay.Config.Configuration
                 .WithOne(ur => ur.Role)
                 .HasForeignKey(ur => ur.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
+                
+            builder.Property(r => r.IsDeleted)
+                .IsRequired()
+                .HasDefaultValue(false);
         }
     }
 
@@ -122,6 +126,10 @@ namespace SwiftPay.Config.Configuration
                 .WithMany(r => r.UserRoles)
                 .HasForeignKey(ur => ur.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
+                
+            builder.Property(ur => ur.IsDeleted)
+                .IsRequired()
+                .HasDefaultValue(false);
         }
     }
 
