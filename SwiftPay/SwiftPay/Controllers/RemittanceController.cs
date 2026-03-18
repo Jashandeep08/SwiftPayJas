@@ -40,21 +40,7 @@ namespace SwiftPay.Controllers
                 var created = await _service.CreateAsync(dto);
                 return Ok(new { message = "Remittance created successfully.", data = created });
             }
-            catch (ArgumentNullException ex)
-            {
-                // Bad input
-                return BadRequest(new { message = "Invalid input.", error = ex.Message });
-            }
-            catch (ValidationException ex)
-            {
-                // Data annotations validation failure
-                return BadRequest(new { message = "Validation failed.", error = ex.Message });
-            }
-            catch (DbUpdateException ex)
-            {
-                // Database update error
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "A database error occurred while creating the remittance.", error = ex.Message });
-            }
+           
             catch (Exception ex)
             {
                 // Catch-all for unexpected errors

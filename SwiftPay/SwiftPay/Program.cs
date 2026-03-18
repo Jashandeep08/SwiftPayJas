@@ -1,13 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using SwiftPay.Configuration;
 using AutoMapper;
-<<<<<<< Updated upstream
 using SwiftPay.Profiles;
 using SwiftPay.Mapper;
 using System.Text.Json.Serialization;
-=======
-using SwiftPay.Mapper;
->>>>>>> Stashed changes
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +15,6 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddScoped<SwiftPay.Repositories.Interfaces.IRemittanceRepository, SwiftPay.Repositories.RemittanceRepository>();
 builder.Services.AddScoped<SwiftPay.Services.Interfaces.IRemittanceService, SwiftPay.Services.RemittanceService>();
 
-<<<<<<< Updated upstream
 // Register User Repository and Service
 builder.Services.AddScoped<SwiftPay.Repositories.Interfaces.IUserRepository, SwiftPay.Repositories.UserRepository>();
 builder.Services.AddScoped<SwiftPay.Services.Interfaces.IUserService, SwiftPay.Services.UserService>();
@@ -53,7 +48,6 @@ builder.Services.AddAutoMapper(typeof(RemittanceProfile),
     typeof(SwiftPay.Profiles.KYCRecordMapperProfile),
     typeof(SwiftPay.Profiles.NotificationAlertMapperProfile),
     typeof(SwiftPay.Profiles.AuditLogMapperProfile));
-=======
 // Register ComplianceCheck repository and service so controllers can resolve them
 builder.Services.AddScoped<SwiftPay.Repositories.Interfaces.IComplianceCheckRepository, SwiftPay.Repositories.ComplianceCheckRepository>();
 builder.Services.AddScoped<SwiftPay.Services.Interfaces.IComplianceCheckService, SwiftPay.Services.ComplianceCheckService>();
@@ -61,7 +55,6 @@ builder.Services.AddScoped<SwiftPay.Services.Interfaces.IComplianceCheckService,
 // AutoMapper registration - ensure AutoMapper and its extensions package versions are compatible.
 // Register mapper profiles so IMapper is available for services.
 builder.Services.AddAutoMapper(typeof(ConfigurationMapperProfile));
->>>>>>> Stashed changes
 
 
 // Add services to the container.
