@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-<<<<<<< Updated upstream
 using SwiftPay.Constants.Enums;
 using SwiftPay.Domain.Remittance.Entities;
 using SwiftPay.DTOs.AmendmentDTO;
@@ -7,12 +6,10 @@ using SwiftPay.DTOs.RemittanceDTO;
 using SwiftPay.DTOs.UserCustomerDTO;
 using SwiftPay.Models;
 using System;
-=======
 using SwiftPay.Domain.Remittance.Entities;
 using SwiftPay.DTOs.ComplianceDTO;
 using SwiftPay.DTOs.RemittanceDTO;
->>>>>>> Stashed changes
-
+using System.Text.Json.Serialization;
 namespace SwiftPay.Mapper
 {
     public class ConfigurationMapperProfile : Profile
@@ -30,7 +27,6 @@ namespace SwiftPay.Mapper
                 .ForMember(dest => dest.UpdateDate, opt => opt.Ignore())
                 .ForMember(dest => dest.IsDeleted, opt => opt.Ignore());
 
-<<<<<<< Updated upstream
             // ===== USER MAPPINGS =====
 
             // Map CreateUserDto -> User
@@ -176,7 +172,6 @@ namespace SwiftPay.Mapper
 
 
 
-=======
             //// Optional: map back from entity to DTO for responses if needed
             //CreateMap<RemittanceRequest, CreateRemittanceDto>()
             //    .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.CustomerId))
@@ -198,7 +193,6 @@ namespace SwiftPay.Mapper
                 .ForMember(dest => dest.UpdateDate, opt => opt.Ignore())
                 .ForMember(dest => dest.IsDeleted, opt => opt.Ignore());
 
->>>>>>> Stashed changes
         }
     }
 }
