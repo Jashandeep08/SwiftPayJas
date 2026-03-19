@@ -4,22 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using SwiftPay.Configuration;
 using SwiftPay.Profiles;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. Database
 builder.Services.AddDbContext<AppDbContext>(opt =>
 	opt.UseSqlServer(builder.Configuration.GetConnectionString("SwiftPayDb")));
-
-// 1.b CORS - allow API calls from browser (preflight). Adjust origins for production.
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
 
 // 2. Automatic Registration (The "Short" Way)
 // This finds all classes ending in "Repository" or "Service" and registers them against their IInterface
@@ -56,9 +46,6 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
 app.UseHttpsRedirection();
-
-// Enable CORS for browser preflight requests (adjust policy for production)
-app.UseCors("AllowAll");
 
 app.UseAuthorization();
 app.MapControllers();
